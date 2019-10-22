@@ -27,8 +27,8 @@ class PostUserDefinition extends AbstractRequestDefinition
         return array(
             'user_id' => $options['user_id'],
             'username' => $options['username'],
-            'image_url' => $options['image_url'] ?? null,
-            'issue_access_token' => $options['issue_access_token'] ?? false
+            'image_url' => isset($options['image_url']) ? $options['image_url'] : null,
+            'issue_access_token' => isset($options['issue_access_token']) ? $options['issue_access_token'] : false
         );
     }
 
