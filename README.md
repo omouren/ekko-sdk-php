@@ -1,6 +1,6 @@
 # Ekko SDK PHP
 
-[![Build Status](https://travis-ci.org/yuzu-co/awin-php.svg?branch=master)](https://travis-ci.org/yuzu-co/awin-php) 
+[![Build Status](https://travis-ci.org/ekko-chat/ekko-sdk-php.svg?branch=master)](https://travis-ci.org/ekko-chat/ekko-sdk-php) 
 
 PHP library for the Ekko API.
 
@@ -21,7 +21,7 @@ $ composer require ekko-chat/ekko-sdk-php
 
 ``` php
 $apiToken = 'XXXXX'
-$client = new Yuzu\Awin\Client($apiToken);
+$client = new Ekko\Client($apiToken);
 ```
 
 ## Tests
