@@ -18,7 +18,7 @@ class PutUserDefinition extends AbstractRequestDefinition
 
     public function getBaseUrl()
     {
-        return sprintf('/user/%d', $this->getOptions()['user_id']);
+        return sprintf('/user/%s', $this->getOptions()['user_id']);
     }
 
     public function getBody()
