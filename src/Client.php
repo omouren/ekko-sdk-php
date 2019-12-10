@@ -3,6 +3,10 @@
 namespace Ekko;
 
 use Ekko\Http\Response;
+use Ekko\Request\DeleteChannelDefinition;
+use Ekko\Request\GetCountUnreadMessagesDefinition;
+use Ekko\Request\PostChannelDefinition;
+use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
 use Ekko\Request\PutUserDefinition;
 use Ekko\Request\RequestDefinitionInterface;
@@ -51,7 +55,7 @@ class Client
                 ]
             ]);
         }
-        
+
         return $this->httpClient;
     }
 
@@ -87,5 +91,41 @@ class Client
     public function updateUser(array $options = [])
     {
         return $this->send(new PutUserDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function deleteChannel(array $options = [])
+    {
+        return $this->send(new DeleteChannelDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function createMessage(array $options = [])
+    {
+        return $this->send(new PostMessageDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function createChannel(array $options = [])
+    {
+        return $this->send(new PostChannelDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function countUnreadMessages(array $options = [])
+    {
+        return $this->send(new GetCountUnreadMessagesDefinition($options));
     }
 }
