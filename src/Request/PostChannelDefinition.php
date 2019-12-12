@@ -31,6 +31,7 @@ class PostChannelDefinition extends AbstractRequestDefinition
         $resolver->setDefined([
             'room_id',
             'private',
+            'custom_type',
             'distinct',
             'users_ids',
         ]);
