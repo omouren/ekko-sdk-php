@@ -8,6 +8,8 @@ use Ekko\Request\GetCountUnreadMessagesDefinition;
 use Ekko\Request\PostChannelDefinition;
 use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
+use Ekko\Request\PutMessageDefinition;
+use Ekko\Request\GetMessageDefinition;
 use Ekko\Request\PutUserDefinition;
 use Ekko\Request\RequestDefinitionInterface;
 use GuzzleHttp\Client as GuzzleClient;
@@ -106,9 +108,27 @@ class Client
      * @param array $options
      * @return Response
      */
+    public function getMessage(array $options = [])
+    {
+        return $this->send(new GetMessageDefinition($options));
+    }
+   
+    /**
+     * @param array $options
+     * @return Response
+     */
     public function createMessage(array $options = [])
     {
         return $this->send(new PostMessageDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function updateMessage(array $options = [])
+    {
+        return $this->send(new PutMessageDefinition($options));
     }
 
     /**
