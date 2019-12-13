@@ -28,7 +28,8 @@ class PutUserDefinition extends AbstractRequestDefinition
             'user_id' => $options['user_id'],
             'username' => $options['username'],
             'image_url' => isset($options['image_url']) ? $options['image_url'] : null,
-            'issue_access_token' => isset($options['issue_access_token']) ? $options['issue_access_token'] : false
+            'issue_access_token' => isset($options['issue_access_token']) ? $options['issue_access_token'] : false,
+            'force_access_token' => isset($options['force_access_token']) ? $options['force_access_token'] : null
         );
     }
 
@@ -39,6 +40,7 @@ class PutUserDefinition extends AbstractRequestDefinition
             'username',
             'image_url',
             'issue_access_token',
+            'force_access_token',
             'email'
         ]);
         $resolver->setAllowedTypes('issue_access_token', ['bool']);
