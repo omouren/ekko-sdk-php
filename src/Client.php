@@ -5,6 +5,7 @@ namespace Ekko;
 use Ekko\Http\Response;
 use Ekko\Request\DeleteChannelDefinition;
 use Ekko\Request\GetCountUnreadMessagesDefinition;
+use Ekko\Request\GetLastMessageInChannelDefinition;
 use Ekko\Request\PostChannelDefinition;
 use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
@@ -147,5 +148,14 @@ class Client
     public function countUnreadMessages(array $options = [])
     {
         return $this->send(new GetCountUnreadMessagesDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function lastMessageInChannel(array $options = [])
+    {
+        return $this->send(new GetLastMessageInChannelDefinition($options));
     }
 }
