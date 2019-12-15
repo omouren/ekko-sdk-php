@@ -24,13 +24,13 @@ class PutMessageDefinition extends AbstractRequestDefinition
     public function getBody()
     {
         $options = $this->getOptions();
-        return array(
+        return array_filter(array(
             'room_id' => $options['room_id'],
             'message_id' => $options['message_id'],
             'text' => isset($options['text']) ? $options['text'] : null,
             'custom_type' => isset($options['custom_type']) ? $options['custom_type'] : null,
             'metadatas' => isset($options['metadatas']) ? $options['metadatas'] : null,
-        );
+        ));
     }
 
     protected function configureOptions(OptionsResolver $resolver)
