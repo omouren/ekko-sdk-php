@@ -52,6 +52,7 @@ class Client
         if (empty($this->httpClient)) {
             $this->httpClient = new GuzzleClient([
                 'base_uri' => $this->apiEndpoint,
+                'force_ip_resolve' => 'v4',
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'api-key' => sprintf('%s', $this->apiToken)
