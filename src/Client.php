@@ -11,6 +11,7 @@ use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
 use Ekko\Request\PutMessageDefinition;
 use Ekko\Request\GetMessageDefinition;
+use Ekko\Request\GetMessagesInChannelDefinition;
 use Ekko\Request\PutUserDefinition;
 use Ekko\Request\RequestDefinitionInterface;
 use GuzzleHttp\Client as GuzzleClient;
@@ -160,5 +161,14 @@ class Client
     public function lastMessageInChannel(array $options = [])
     {
         return $this->send(new GetLastMessageInChannelDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function messagesInChannel(array $options = [])
+    {
+        return $this->send(new GetMessagesInChannelDefinition($options));
     }
 }
