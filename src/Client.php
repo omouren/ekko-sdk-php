@@ -7,6 +7,7 @@ use Ekko\Request\DeleteChannelDefinition;
 use Ekko\Request\GetCountUnreadMessagesDefinition;
 use Ekko\Request\GetLastMessageInChannelDefinition;
 use Ekko\Request\PostChannelDefinition;
+use Ekko\Request\PutChannelDefinition;
 use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
 use Ekko\Request\PutMessageDefinition;
@@ -143,6 +144,16 @@ class Client
     public function createChannel(array $options = [])
     {
         return $this->send(new PostChannelDefinition($options));
+    }
+
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function updateChannel(array $options = [])
+    {
+        return $this->send(new PutChannelDefinition($options));
     }
 
     /**
