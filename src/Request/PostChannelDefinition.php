@@ -23,16 +23,7 @@ class PostChannelDefinition extends AbstractRequestDefinition
 
     public function getBody()
     {
-        $options = $this->getOptions();
-        return array(
-            'room_id' => $options['room_id'],
-            'private' => $options['private'],
-            'distinct' => $options['distinct'],
-            'name' => isset($options['name']) ? $options['name'] : null,
-            'users_ids' => isset($options['users_ids']) ? $options['users_ids'] : null,
-            'custom_type' => isset($options['custom_type']) ? $options['custom_type'] : null,
-            'metadatas' => isset($options['metadatas']) ? $options['metadatas'] : null
-        );
+        return $this->getOptions();
     }
 
     protected function configureOptions(OptionsResolver $resolver)
