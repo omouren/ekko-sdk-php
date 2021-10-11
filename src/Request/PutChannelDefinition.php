@@ -5,31 +5,27 @@ namespace Ekko\Request;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * PostChannelDefinition
+ * PutChannelDefinition
  *
  * @author Jonathan Martin <jonathan@ekoha.co>
  */
-class PostChannelDefinition extends AbstractRequestDefinition
+class PutChannelDefinition extends AbstractRequestDefinition
 {
     public function getMethod()
     {
-        return 'POST';
+        return 'PUT';
     }
 
     public function getBaseUrl()
     {
-        return '/rooms';
+        return sprintf('/rooms/%s', $this->getOptions()['room_id']);
     }
 
     public function getBody()
     {
         $options = $this->getOptions();
         return array(
-            'room_id' => $options['room_id'],
-            'private' => $options['private'],
-            'distinct' => $options['distinct'],
             'name' => isset($options['name']) ? $options['name'] : null,
-            'users_ids' => isset($options['users_ids']) ? $options['users_ids'] : null,
             'custom_type' => isset($options['custom_type']) ? $options['custom_type'] : null,
             'metadatas' => isset($options['metadatas']) ? $options['metadatas'] : null
         );
@@ -39,14 +35,9 @@ class PostChannelDefinition extends AbstractRequestDefinition
     {
         $resolver->setDefined([
             'room_id',
-            'private',
             'custom_type',
-            'distinct',
-            'users_ids',
             'name',
             'metadatas',
         ]);
-        $resolver->setAllowedTypes('private', ['bool']);
-        $resolver->setAllowedTypes('distinct', ['bool']);
     }
 }
