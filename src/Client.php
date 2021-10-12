@@ -146,7 +146,6 @@ class Client
         return $this->send(new PostChannelDefinition($options));
     }
 
-
     /**
      * @param array $options
      * @return Response
