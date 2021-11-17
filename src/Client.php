@@ -55,8 +55,8 @@ class Client
             $this->httpClient = new GuzzleClient([
                 'base_uri' => $this->apiEndpoint,
                 'force_ip_resolve' => 'v4',
-                'connect_timeout' => 2,
-                'timeout' => 3,
+                'connect_timeout' => 10,
+                'timeout' => 15,
                 'headers' => [
                     'Content-Type' => 'application/json',
                     'api-key' => sprintf('%s', $this->apiToken)
