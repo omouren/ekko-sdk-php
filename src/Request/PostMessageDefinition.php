@@ -44,6 +44,6 @@ class PostMessageDefinition extends AbstractRequestDefinition
             'metadatas',
             'custom_type'
         ]);
-        $resolver->setRequired(['room_id', 'user_id', 'text']);
+        $resolver->setRequired(['room_id', 'text']);
     }
 }
