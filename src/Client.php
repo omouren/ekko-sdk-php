@@ -11,6 +11,7 @@ use Ekko\Request\PutChannelDefinition;
 use Ekko\Request\PostMessageDefinition;
 use Ekko\Request\PostUserDefinition;
 use Ekko\Request\PutMessageDefinition;
+use Ekko\Request\DeleteMessageDefinition;
 use Ekko\Request\GetMessageDefinition;
 use Ekko\Request\GetMessagesInChannelDefinition;
 use Ekko\Request\PutUserDefinition;
@@ -135,6 +136,15 @@ class Client
     public function updateMessage(array $options = [])
     {
         return $this->send(new PutMessageDefinition($options));
+    }
+
+    /**
+     * @param array $options
+     * @return Response
+     */
+    public function deleteMessage(array $options = [])
+    {
+        return $this->send(new DeleteMessageDefinition($options));
     }
 
     /**
