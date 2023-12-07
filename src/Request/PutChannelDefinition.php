@@ -28,7 +28,7 @@ class PutChannelDefinition extends AbstractRequestDefinition
             'name' => isset($options['name']) ? $options['name'] : null,
             'custom_type' => isset($options['custom_type']) ? $options['custom_type'] : null,
             'metadatas' => isset($options['metadatas']) ? $options['metadatas'] : null,
-            'users_ids' => isset($options['users_ids']) ? $options['metadatas'] : null
+            'users_ids' => isset($options['users_ids']) ? $options['users_ids'] : null
         );
     }
 
